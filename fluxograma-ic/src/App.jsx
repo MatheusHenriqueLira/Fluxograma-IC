@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './componentes/Header';
 import Navbar from './componentes/Navbar';
-import Montador from './componentes/Montador';
+import FlowCanvas from './componentes/FlowCanvas';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
 
         <Navbar />
 
-        <Montador />
+        <FlowCanvas />
 
       </div>
 
