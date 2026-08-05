@@ -11,7 +11,7 @@ const nodes = [
 
         data: {
 
-            label: "Início"
+            label: "oi eu sou um bloquinho"
 
         },
 

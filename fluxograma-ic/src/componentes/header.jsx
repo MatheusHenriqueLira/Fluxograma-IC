@@ -1,7 +1,7 @@
 function Header() {
     return (
         <header className="header">
-            <h1>Plataforma de Ensino de Lógica</h1>
+            <h1>Uau uau uau uau</h1>
         </header>
     );
 }

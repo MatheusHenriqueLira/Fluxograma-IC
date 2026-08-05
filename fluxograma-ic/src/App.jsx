@@ -1,6 +1,6 @@
 import './App.css';
-import Header from './componentes/Header';
-import Navbar from './componentes/Navbar';
+import Header from './componentes/header';
+import Navbar from './componentes/navbar';
 import FlowCanvas from './componentes/FlowCanvas';
 
 function App() {
