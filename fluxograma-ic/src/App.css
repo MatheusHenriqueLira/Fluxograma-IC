@@ -1,0 +1,35 @@
+.app{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.content{
+    flex:1;
+    display:flex;
+}
+
+.header{
+    height:70px;
+    background:#d96ccc;
+    color:white;
+    display:flex;
+    align-items:center;
+    padding:0 30px;
+}
+
+.navbar{
+    width:250px;
+    background:white;
+    border-right:1px solid #ddd;
+    padding:20px;
+}
+
+.montador{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#ececec;
+}
