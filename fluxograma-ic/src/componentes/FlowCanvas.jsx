@@ -9,7 +9,7 @@ const nodeTypes = {
 
     start: StartNode,
 
-    default: DefaultNode,
+    process: DefaultNode,
 
     decision: DecisionNode
 
@@ -25,7 +25,7 @@ const nodes = [
 
   {
     id: "2",
-    type: "default",
+    type: "process",
     position: { x: 350, y: 100 },
     data: {
       label: "Processo"
@@ -48,7 +48,7 @@ function FlowCanvas() {
 
         <div className="flowCanvas">
 
-            <ReactFlow nodes={nodes}/>
+            <ReactFlow nodes={nodes} nodeTypes={nodeTypes}/>
 
         </div>
 
