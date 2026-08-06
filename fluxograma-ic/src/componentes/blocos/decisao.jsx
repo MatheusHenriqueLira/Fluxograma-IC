@@ -4,7 +4,7 @@ function DecisionNode({ data }){
 
         <div className="decisionNode">
 
-            {data.label}
+            <span>{data.label}</span>
 
         </div>
 
