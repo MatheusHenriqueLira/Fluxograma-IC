@@ -84,6 +84,10 @@
     position:relative;
 }
 
+.startNode, .defaultNode, .endNode, .decisionNode{
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
 .react-flow__handle {
     width: 10px;
     height: 10px;
