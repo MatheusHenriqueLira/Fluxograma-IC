@@ -1,4 +1,4 @@
-import { ReactFlow} from "@xyflow/react";
+import {ReactFlow, Background, BackgroundVariant} from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import "../App.css";
 import StartNode from "./blocos/inicio";
@@ -25,8 +25,10 @@ function FlowCanvas({ nodes, onNodesChange, edges, onEdgesChange, onConnect }) {
         onNodesChange={onNodesChange}
         nodeTypes={nodeTypes}
         nodesDraggable
-        fitView
-      />
+        fitView 
+      >
+        <Background variant={BackgroundVariant.Dots} gap={16} size={1} />
+      </ReactFlow>
     </div>
   );
 }
