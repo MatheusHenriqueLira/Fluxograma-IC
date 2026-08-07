@@ -1,4 +1,4 @@
-function NavbarItem({ nome }) {
+function NavbarItem({ nome, tipo, onAdicionarNode }) {
 
     return (
 
@@ -6,7 +6,7 @@ function NavbarItem({ nome }) {
 
             <span>{nome}</span>
 
-            <button>+</button>
+            <button onClick={() => onAdicionarNode(tipo, nome)}>+</button>
 
         </div>
 
@@ -15,3 +15,4 @@ function NavbarItem({ nome }) {
 }
 
 export default NavbarItem;
+
