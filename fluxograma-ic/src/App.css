@@ -1,116 +1,133 @@
-.app{
-    width:100%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
+.app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.content{
-    flex:1;
-    display:flex;
+.content {
+    flex: 1;
+    display: flex;
 }
 
-.header{
-    height:70px;
-    background:#d96ccc;
-    color:white;
-    display:flex;
-    align-items:center;
-    padding:0 30px;
+.header {
+    height: 70px;
+    background: #d96ccc;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
 }
 
-.navbar{
-    width:250px;
-    background:white;
-    border-right:1px solid #ddd;
-    padding:20px;
+.navbar {
+    width: 250px;
+    background: white;
+    border-right: 1px solid #ddd;
+    padding: 20px;
 }
 
-.flowCanvas{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#ececec;
+.flowCanvas {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ececec;
 }
 
-.startNode{
-    width:120px;
-    height:50px;
-    background:#4CAF50;
-    color:white;
-    border-radius:25px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:bold;
+.startNode {
+    width: 120px;
+    height: 50px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: relative;
 }
 
-.defaultNode{
-    width:150px;
-    height:60px;
-    border:2px solid #555;
-    border-radius:8px;
-    background:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.defaultNode {
+    width: 150px;
+    height: 60px;
+    border: 2px solid #555;
+    border-radius: 8px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-.decisionNode{
-    width:120px;
-    height:120px;
-    background:#ffcc00;
-    transform:rotate(45deg);
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.decisionNode {
+    width: 120px;
+    height: 120px;
+    background: #ffcc00;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-.decisionNode span{
-    transform:rotate(-45deg);
+.decisionNode span {
+    transform: rotate(-45deg);
 }
 
-.endNode{
-    width:120px;
-    height:50px;
-    background:#bb1313;
-    color:white;
-    border-radius:25px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:bold;
-    position:relative;
+.endNode {
+    width: 120px;
+    height: 50px;
+    background: #bb1313;
+    color: white;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: relative;
 }
 
-.startNode, .defaultNode, .endNode, .decisionNode{
-    box-shadow:0 0 10px rgba(0,0,0,0.3);
+.startNode,
+.defaultNode,
+.endNode,
+.decisionNode {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.react-flow__handle {
-    width: 10px;
-    height: 10px;
-    background: #555;
-    border: 3px solid white;
+.react-flow__handle.source {
+    width: 7px;
+    height: 7px;
+    background-color: #ff0000;
 }
 
-.navbarItem{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:10px;
-    margin-top:10px;
-    background:white;
-    border:1px solid #ddd;
-    border-radius:8px;
-    cursor:pointer;
+.react-flow__handle.target {
+    width: 7px;
+    height: 7px;
+    background-color: #d96ccc;
 }
 
-.navbarItem button{
-    width:30px;
-    height:30px;
-    border:none;
-    border-radius:50%;
-    cursor:pointer;
+.navbarItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-top: 20px;
+    background: white;
+    border: 1px solid #d96ccc;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.navbarItem button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.navbarItem button:hover {
+    transform: scale(1.1);
+    color: #d96ccc;
 }

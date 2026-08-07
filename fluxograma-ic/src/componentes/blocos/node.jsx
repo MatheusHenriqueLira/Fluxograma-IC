@@ -5,9 +5,9 @@ function DefaultNode({ data }) {
     return (
 
         <div className="defaultNode">
-            <Handle type="target" position={Position.Top} />
+            <Handle type="target" position={Position.Top} className="node-handle" />
             <span>{data?.label ?? "Processo"}</span>
-            <Handle type="source" position={Position.Bottom} />
+            <Handle type="source" position={Position.Bottom} className="node-handle" />
         </div>
 
     );
