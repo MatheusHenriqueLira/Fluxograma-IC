@@ -81,6 +81,14 @@
     justify-content:center;
     align-items:center;
     font-weight:bold;
+    position:relative;
+}
+
+.react-flow__handle {
+    width: 10px;
+    height: 10px;
+    background: #555;
+    border: 2px solid white;
 }
 
 .navbarItem{

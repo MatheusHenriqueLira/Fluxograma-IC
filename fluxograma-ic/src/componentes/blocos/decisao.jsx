@@ -1,11 +1,13 @@
+import { Handle, Position } from "@xyflow/react";
+
 function DecisionNode({ data }){
 
     return(
 
         <div className="decisionNode">
-
-            <span>{data.label}</span>
-
+            <Handle type="target" position={Position.Top} />
+            <span>{data?.label ?? "Decisão"}</span>
+            <Handle type="source" position={Position.Bottom} />
         </div>
 
     )

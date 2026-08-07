@@ -1,11 +1,12 @@
-function EndNode() {
+import { Handle, Position } from "@xyflow/react";
+
+function EndNode({ data }) {
 
     return (
 
         <div className="endNode">
-
-            Fim
-
+            <Handle type="target" position={Position.Top} />
+            <span>{data?.label ?? "Fim"}</span>
         </div>
 
     );
