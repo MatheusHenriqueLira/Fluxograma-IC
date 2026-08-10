@@ -5,12 +5,16 @@ import StartNode from "./blocos/inicio";
 import DefaultNode from "./blocos/node";
 import DecisionNode from "./blocos/decisao";
 import EndNode from "./blocos/fim";
+import EntradaNode from "./blocos/entrada";
+import SaidaNode from "./blocos/saida";
 
 const nodeTypes = {
     start: StartNode,
     process: DefaultNode,
     decision: DecisionNode,
-    end: EndNode
+    end: EndNode,
+    entrada: EntradaNode,
+    saida: SaidaNode
 }
 
 

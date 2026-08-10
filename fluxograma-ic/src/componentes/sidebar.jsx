@@ -1,17 +1,17 @@
-import NavbarItem from "./navbaritem";
+import SidebarItem from "./sidebaritem";
 const blocos = [
     { id: 1, nome: "Processo", tipo: "process" },
     { id: 2, nome: "Decisão", tipo: "decision" },
-    { id: 3, nome: "Entrada", tipo: "process" },
-    { id: 4, nome: "Saída", tipo: "process" },
+    { id: 3, nome: "Entrada", tipo: "entrada" },
+    { id: 4, nome: "Saída", tipo: "saida" },
     { id: 5, nome: "Fim", tipo: "end" }
 ];
 
-function Navbar({ onAdicionarNode }) {
+function Sidebar({ onAdicionarNode }) {
 
     return (
 
-        <aside className="navbar">
+        <aside className="sidebar">
 
             <h2>Blocos</h2>
 
@@ -19,7 +19,7 @@ function Navbar({ onAdicionarNode }) {
 
                 blocos.map((bloco) => (
 
-                    <NavbarItem
+                    <SidebarItem
                         key={bloco.id}
                         nome={bloco.nome}
                         tipo={bloco.tipo}
@@ -36,4 +36,4 @@ function Navbar({ onAdicionarNode }) {
 
 }
 
-export default Navbar;
+export default Sidebar;

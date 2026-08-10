@@ -1,8 +1,8 @@
-function NavbarItem({ nome, tipo, onAdicionarNode }) {
+function SidebarItem({ nome, tipo, onAdicionarNode }) {
 
     return (
 
-        <div className="navbarItem">
+        <div className="sidebarItem">
 
             <span>{nome}</span>
 
@@ -14,5 +14,5 @@ function NavbarItem({ nome, tipo, onAdicionarNode }) {
 
 }
 
-export default NavbarItem;
+export default SidebarItem;
 

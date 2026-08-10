@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './componentes/header';
-import Navbar from './componentes/navbar';
+import Sidebar from './componentes/sidebar';
 import FlowCanvas from './componentes/FlowCanvas';
 import { useNodesState, useEdgesState, addEdge } from "@xyflow/react";
 
@@ -69,7 +69,7 @@ function App() {
 
       <div className="content">
 
-        <Navbar onAdicionarNode={adicionarNode} />
+        <Sidebar onAdicionarNode={adicionarNode} />
 
         <FlowCanvas
           nodes={nodes}
