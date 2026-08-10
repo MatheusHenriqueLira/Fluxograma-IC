@@ -4,7 +4,6 @@ import Navbar from './componentes/navbar';
 import FlowCanvas from './componentes/FlowCanvas';
 import { useNodesState, useEdgesState, addEdge } from "@xyflow/react";
 
-
 const initialEdges = [];
 
 const initialNodes = [
@@ -22,7 +21,6 @@ function App() {
 
   function onConnect(connection) {
     setEdges((eds) => addEdge(connection, eds));
-
   }
 
   function adicionarNode(tipo, label) {
@@ -38,14 +36,36 @@ function App() {
       }
     };
 
-    setNodes((nodesAtuais) => [...nodesAtuais,novoNode]);
+    setNodes((nodesAtuais) => [...nodesAtuais, novoNode]);
   }
 
+  function salvarFluxograma() {
+    const fluxograma = {
+      nodes: nodes,
+      edges: edges
+    };
+    localStorage.setItem("fluxograma", JSON.stringify(fluxograma));
+
+  }
+  function carregarFluxograma() {
+
+    const dadosSalvos = localStorage.getItem("fluxograma");
+
+    if (dadosSalvos) {
+
+        const fluxograma = JSON.parse(dadosSalvos);
+
+        setNodes(fluxograma.nodes);
+        setEdges(fluxograma.edges);
+    }
+}
   return (
 
-    <div className="app">
+    < div className="app" >
 
-      <Header />
+      <Header 
+      onSalvar={salvarFluxograma}
+      onCarregar={carregarFluxograma} />
 
       <div className="content">
 
@@ -61,7 +81,7 @@ function App() {
 
       </div>
 
-    </div>
+    </div >
   );
 }
 

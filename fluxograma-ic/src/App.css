@@ -106,7 +106,7 @@
     background-color: #d96ccc;
 }
 
-.navbarItem {
+.navbarItem  {
     display: flex;
     justify-content: space-between;
     align-items: center;
