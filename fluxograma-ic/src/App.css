@@ -107,19 +107,33 @@
     transform: skew(10deg);
 }
 
+.decisionNode span {
+    transform: rotate(-45deg);
+}
+
 .decisionNode {
-    width: 120px;
-    height: 120px;
-    background: #ffcc00;
-    transform: rotate(45deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 160px;
+    height: 160px;
     position: relative;
 }
 
-.decisionNode span {
+.gambiarra {
+    background: #ffcc00;
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    left: 25px;
+    top: 25px;
+    transform: rotate(45deg);
+}
+
+.gambiarra span {
     transform: rotate(-45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .endNode {
@@ -138,7 +152,7 @@
 .startNode,
 .defaultNode,
 .endNode,
-.decisionNode {
+.gambiarra {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 

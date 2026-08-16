@@ -6,9 +6,19 @@ function DecisionNode({ data }){
 
         <div className="decisionNode">
             <Handle type="target" position={Position.Top} className="node-handle" />
-            <span>{data?.label ?? "Decisão"}</span>
-            <Handle type="source" position={Position.Bottom} className="node-handle" />
-            <Handle type="source" position={Position.Right} className="node-handle" />
+            <div className="gambiarra">
+                <span>{data?.label ?? "Decisão"}</span>
+            </div>
+            <Handle type="source"
+            position={Position.Left} 
+            className="node-handle"
+            id="left"
+            />
+            <Handle type="source"
+            position={Position.Right}
+            className="node-handle"
+            id="right"
+             />
         </div>
 
     )
