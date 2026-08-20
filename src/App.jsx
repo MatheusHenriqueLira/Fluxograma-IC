@@ -39,6 +39,22 @@ function App() {
     setNodes((nodesAtuais) => [...nodesAtuais, novoNode]);
   }
 
+  function atualizarNode(id, novosDados) {
+    setNodes((nodes) =>
+      nodes.map((node) =>
+        node.id === id
+          ? {
+            ...node,
+            data: {
+              ...node.data,
+              ...novosDados
+            }
+          }
+          : node
+      )
+    );
+  }
+
   function salvarFluxograma() {
     const fluxograma = {
       nodes: nodes,
@@ -53,19 +69,19 @@ function App() {
 
     if (dadosSalvos) {
 
-        const fluxograma = JSON.parse(dadosSalvos);
+      const fluxograma = JSON.parse(dadosSalvos);
 
-        setNodes(fluxograma.nodes);
-        setEdges(fluxograma.edges);
+      setNodes(fluxograma.nodes);
+      setEdges(fluxograma.edges);
     }
-}
+  }
   return (
 
     < div className="app" >
 
-      <Header 
-      onSalvar={salvarFluxograma}
-      onCarregar={carregarFluxograma} />
+      <Header
+        onSalvar={salvarFluxograma}
+        onCarregar={carregarFluxograma} />
 
       <div className="content">
 
@@ -77,6 +93,8 @@ function App() {
           edges={edges}
           onEdgesChange={onEdgesChange}
           onConnect={onConnect}
+          setNodes={setNodes}
+          atualizarNode={atualizarNode}
         />
 
       </div>

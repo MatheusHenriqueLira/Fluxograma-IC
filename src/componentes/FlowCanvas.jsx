@@ -17,15 +17,22 @@ const nodeTypes = {
     saida: SaidaNode
 }
 
+function FlowCanvas({ nodes, onNodesChange, edges, onEdgesChange, onConnect, atualizarNode }) {
+  const nodesComFuncao = nodes.map((node) => ({
+    ...node,
+    data: {
+      ...node.data,
+      atualizarNode
+    }
+  }));
 
-function FlowCanvas({ nodes, onNodesChange, edges, onEdgesChange, onConnect }) {
   return (
     <div className="flowCanvas">
       <ReactFlow
         edges={edges}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-        nodes={nodes}
+        nodes={nodesComFuncao}
         onNodesChange={onNodesChange}
         nodeTypes={nodeTypes}
         nodesDraggable

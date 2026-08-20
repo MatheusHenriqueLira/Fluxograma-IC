@@ -99,12 +99,18 @@
     background: gray;
     color: var(--surface-color);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     transform: skew(-10deg);
 }
 .entradaNode span, .saidaNode span {
     transform: skew(10deg);
+}
+
+.entradaNode input{
+    width: 100%;
+    border-radius: 4px;
 }
 
 .decisionNode span {
@@ -193,3 +199,4 @@
     transform: scale(1.1);
     color: var(--primary-color);
 }
+
