@@ -2,7 +2,7 @@ import {ReactFlow, Background, BackgroundVariant} from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import "../App.css";
 import StartNode from "./blocos/inicio";
-import DefaultNode from "./blocos/node";
+import ProcessoNode from "./blocos/processo";
 import DecisionNode from "./blocos/decisao";
 import EndNode from "./blocos/fim";
 import EntradaNode from "./blocos/entrada";
@@ -10,7 +10,7 @@ import SaidaNode from "./blocos/saida";
 
 const nodeTypes = {
     start: StartNode,
-    process: DefaultNode,
+    process: ProcessoNode,
     decision: DecisionNode,
     end: EndNode,
     entrada: EntradaNode,

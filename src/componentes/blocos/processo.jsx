@@ -1,10 +1,10 @@
 import { Handle, Position } from "@xyflow/react";
 
-function DefaultNode({ id, data }) {
+function ProcessoNode({ id, data }) {
 
     return (
 
-        <div className="defaultNode">
+        <div className="processoNode">
             <Handle type="target" position={Position.Top} className="node-handle" />
             <span>{data?.label ?? "Processo"}</span>
             <input
@@ -24,4 +24,4 @@ function DefaultNode({ id, data }) {
 
 }
 
-export default DefaultNode;
+export default ProcessoNode;

@@ -80,7 +80,7 @@
     position: relative;
 }
 
-.defaultNode {
+.processoNode {
     width: 150px;
     height: 60px;
     border: 2px solid #555;
@@ -93,7 +93,7 @@
     align-items: center;
     position: relative;
 }
-.defaultNode input {
+.processoNode input {
     width: 90%;
     border-radius: 4px;
     margin-top: 5px;
@@ -101,7 +101,7 @@
 
 .entradaNode, .saidaNode {
     width: 130px;
-    height: 60px;
+    height: 65px;
     background: gray;
     color: var(--surface-color);
     display: flex;
@@ -115,7 +115,7 @@
 }
 
 .entradaNode input{
-    width: 100%;
+    width: 90%;
     border-radius: 4px;
 }
 
@@ -162,7 +162,7 @@
 }
 
 .startNode,
-.defaultNode,
+.processoNode,
 .endNode,
 .gambiarra {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
