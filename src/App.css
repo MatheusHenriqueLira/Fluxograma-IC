@@ -1,10 +1,16 @@
 :root {
+    --header-color: linear-gradient(135deg, #d96ccc, #a05097);
     --primary-color: #d96ccc;
-    --background-color: #ececec;
+    --canvas-color: #ececec;
     --surface-color: #ffffff;
     --success-color: #4CAF50;
     --danger-color: #bb1313;
     --text-color: #333;
+    --start-color: linear-gradient(135deg, #66bb6a, #388e3c);
+    --process-color: linear-gradient(135deg, #8295bd, #4f628b);
+    --decision-color: linear-gradient(135deg, #ffe082, #d9a817);
+    --inputoutput-color: linear-gradient(135deg, #898d92, #474d53);
+    --end-color: linear-gradient(135deg, #ef5350, #a50f0f);
 }
 
 .app {
@@ -21,7 +27,7 @@
 
 .header {
     height: 70px;
-    background: var(--primary-color);
+    background: var(--header-color);
     color: var(--surface-color);
     display: flex;
     align-items: center;
@@ -64,13 +70,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--background-color);
+    background: var(--canvas-color);
 }
 
 .startNode {
     width: 120px;
     height: 50px;
-    background: var(--success-color);
+    background: var(--start-color);
     color: var(--surface-color);
     border-radius: 25px;
     display: flex;
@@ -83,9 +89,8 @@
 .processoNode {
     width: 150px;
     height: 60px;
-    border: 2px solid #555;
     border-radius: 8px;
-    background: var(--surface-color);
+    background: var(--process-color);
     color: var(--text-color);
     display: flex;
     flex-direction: column;
@@ -93,16 +98,11 @@
     align-items: center;
     position: relative;
 }
-.processoNode input {
-    width: 90%;
-    border-radius: 4px;
-    margin-top: 5px;
-}
 
 .entradaNode, .saidaNode {
     width: 130px;
-    height: 65px;
-    background: gray;
+    height: 75px;
+    background: var(--inputoutput-color);
     color: var(--surface-color);
     display: flex;
     flex-direction: column;
@@ -114,11 +114,6 @@
     transform: skew(10deg);
 }
 
-.entradaNode input, .saidaNode input {
-    width: 90%;
-    border-radius: 4px;
-}
-
 .decisionNode {
     width: 160px;
     height: 160px;
@@ -126,7 +121,7 @@
 }
 
 .decisionDiamond {
-    background: #ffcc00;
+    background: var(--decision-color);
     width: 110px;
     height: 110px;
     position: absolute;
@@ -149,18 +144,20 @@
     display: block;
     width: 100%;
     text-align: center;
+    color: var(--surface-color);
 }
 
-.decisionContent input {
+.decisionContent input, .entradaNode input, .saidaNode input, .processoNode input {
     width: 75%;
     border-radius: 4px;
     margin-top: 5px;
+    border: 1px solid var(--surface-color);
 }
 
 .endNode {
     width: 120px;
     height: 50px;
-    background: var(--danger-color);
+    background: var(--end-color);
     color: var(--surface-color);
     border-radius: 25px;
     display: flex;
@@ -168,6 +165,16 @@
     align-items: center;
     font-weight: bold;
     position: relative;
+}
+
+.startNode,
+.processoNode,
+.entradaNode,
+.saidaNode,
+.decisionContent,
+.endNode {
+    color: var(--surface-color);
+    font-weight: 600;
 }
 
 .startNode,
