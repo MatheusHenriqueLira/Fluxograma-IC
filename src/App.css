@@ -36,12 +36,11 @@
 
 .botoes {
     display: flex;
-    gap: 10px;
     margin-left: auto;
 }
 
 .salvar-button,
-.carregar-button{
+.carregar-button {
     margin-left: 10px;
     padding: 5px 10px;
     background-color: var(--success-color);
@@ -97,7 +96,8 @@
     position: relative;
 }
 
-.entradaNode, .saidaNode {
+.entradaNode,
+.saidaNode {
     width: 130px;
     height: 75px;
     background: var(--inputoutput-color);
@@ -107,7 +107,9 @@
     align-items: center;
     transform: skew(-10deg);
 }
-.entradaNode span, .saidaNode span {
+
+.entradaNode span,
+.saidaNode span {
     transform: skew(10deg);
 }
 
@@ -143,7 +145,10 @@
     text-align: center;
 }
 
-.decisionContent input, .entradaNode input, .saidaNode input, .processoNode input {
+.decisionContent input,
+.entradaNode input,
+.saidaNode input,
+.processoNode input {
     width: 75%;
     border-radius: 4px;
     margin-top: 5px;
@@ -212,3 +217,9 @@
     color: var(--primary-color);
 }
 
+.terminal {
+    width: 300px;
+    background: var(--surface-color);
+    border-left: 1px solid #ddd;
+    padding: 20px;
+}

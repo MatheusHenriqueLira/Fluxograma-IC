@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './componentes/header';
 import Sidebar from './componentes/sidebar';
+import Terminal from './componentes/terminal';
 import FlowCanvas from './componentes/FlowCanvas';
 import { useNodesState, useEdgesState, addEdge } from "@xyflow/react";
 
@@ -96,7 +97,7 @@ function App() {
           setNodes={setNodes}
           atualizarNode={atualizarNode}
         />
-
+        <Terminal />
       </div>
 
     </div >

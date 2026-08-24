@@ -1,4 +1,4 @@
-function terminal() {
+function Terminal() {
     return (
         <div className="terminal">
             <h2>Terminal</h2>
@@ -6,4 +6,4 @@ function terminal() {
     );
 }
 
-export default terminal;
+export default Terminal;
