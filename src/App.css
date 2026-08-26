@@ -58,6 +58,8 @@
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
     width: 250px;
     background: var(--surface-color);
     border-right: 1px solid #ddd;
@@ -218,8 +220,59 @@
 }
 
 .terminal {
+    display: flex;
+    flex-direction: column;
     width: 300px;
     background: var(--surface-color);
     border-left: 1px solid #ddd;
     padding: 20px;
+}
+
+.AreaLinguagem,
+.Areaterminal {
+    margin-bottom: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 10px;
+    height: 100%;
+}
+
+.Areaterminal {
+    margin-top:auto
+}
+
+.botoessidebar {
+    display: flex;
+    flex-direction: column;
+    margin-top:auto;
+    gap: 10px;
+}
+
+.botaorodar, .botaoconverter {
+    margin-left: 10px;
+    padding: 10px 15px;
+    background-color: var(--success-color);
+    color: var(--surface-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-weight: bold;
+}
+
+.botaorodar:hover, .botaoconverter:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.Areaterminal h2 , .AreaLinguagem h2 {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+.AreaLinguagem p {
+    margin: 5px 0;
+    margin-left: 10px;
 }

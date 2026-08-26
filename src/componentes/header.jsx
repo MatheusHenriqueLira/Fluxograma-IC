@@ -3,7 +3,7 @@ function Header({ onSalvar, onCarregar }) {
         <header className="header">
 
             <div className="logo"></div>
-            <div className="title"><h1>Fluxograma</h1></div>
+            <div className="title"><h1>Fluxinho</h1></div>
             <div className="botoes">
             <button className="salvar-button" onClick={onSalvar}>
                 Salvar Fluxograma

@@ -11,8 +11,7 @@ function Sidebar({ onAdicionarNode }) {
 
     return (
 
-        <aside className="sidebar">
-
+        <div className="sidebar">
             <h2>Blocos</h2>
 
             {
@@ -29,9 +28,11 @@ function Sidebar({ onAdicionarNode }) {
                 ))
 
             }
-
-        </aside>
-
+            <div className="botoessidebar">
+                <button className="botaorodar">Rodar</button>
+                <button className="botaoconverter">Converter</button>
+            </div>
+        </div>
     );
 
 }
