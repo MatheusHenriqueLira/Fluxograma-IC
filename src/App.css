@@ -98,8 +98,7 @@
     position: relative;
 }
 
-.entradaNode,
-.saidaNode {
+.entradaNode {
     width: 130px;
     height: 75px;
     background: var(--inputoutput-color);
@@ -110,10 +109,53 @@
     transform: skew(-10deg);
 }
 
-.entradaNode span,
-.saidaNode span {
+.saidaNode {
+    width: 150px;
+    height: 70px;
+    position: relative;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: none;
+}
+
+.saidaShape {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.entradaNode span {
     transform: skew(10deg);
 }
+
+.saidaNode span {
+    position: relative;
+    transform: none;
+    z-index: 1;
+}
+
+.saidaNode input {
+    position: relative;
+    z-index: 1;
+}
+
+.saidaNode .react-flow__handle {
+    z-index: 1;
+}
+
+.entradaNode input {
+    width: 75%;
+    border-radius: 4px;
+    margin-top: 5px;
+    border: 1px solid var(--surface-color);
+}
+
 
 .decisionNode {
     width: 160px;
@@ -148,10 +190,15 @@
 }
 
 .decisionContent input,
-.entradaNode input,
-.saidaNode input,
 .processoNode input {
     width: 75%;
+    border-radius: 4px;
+    margin-top: 5px;
+    border: 1px solid var(--surface-color);
+}
+
+.saidaNode input {
+    width: 70%;
     border-radius: 4px;
     margin-top: 5px;
     border: 1px solid var(--surface-color);
@@ -172,7 +219,6 @@
 .startNode,
 .processoNode,
 .entradaNode,
-.saidaNode,
 .decisionDiamond,
 .endNode {
     color: var(--surface-color);
@@ -180,6 +226,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.saidaNode {
+    color: var(--surface-color);
+    font-weight: 600;
+}
 
 .react-flow__handle.source {
     width: 7px;
@@ -270,6 +320,21 @@
     margin-top: 10px;
     margin-left: 10px;
     text-decoration: underline;
+}
+
+.languageSelect {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.languageSelect:focus {
+    outline: none;
 }
 
 .AreaLinguagem p {
