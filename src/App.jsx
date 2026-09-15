@@ -76,6 +76,38 @@ function App() {
       setEdges(fluxograma.edges);
     }
   }
+
+  function validarFluxograma(nodes, edges) {
+    if (nodes.length === 0) {
+      alert("O fluxograma está vazio.");
+      return false;
+    }
+  }
+
+  const inicio = nodes.find((node) => {
+    return node.type === "start";
+  });
+  const proximo = encontrarnode(inicio, nodes, edges);
+  console.log(proximo);
+
+  function encontrarnode(nodeAtual, nodes, edges) {
+    const edge = edges.find((edge) => {
+      return edge.source === nodeAtual.id;
+    });
+    if (!edge) {
+      return null;
+    }
+    const nodeDestino = nodes.find((node) => {
+      return node.id === edge.target;
+    });
+
+    return nodeDestino;
+  }
+
+  function rodar() {
+
+  }
+
   return (
 
     < div className="app" >
