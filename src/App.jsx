@@ -82,13 +82,29 @@ function App() {
       alert("O fluxograma está vazio.");
       return false;
     }
+    const inicio = nodes.find((node) => {
+      return node.type === "start";
+    });
+    if (!inicio) {
+      alert("O fluxograma não possui um início.");
+      return false;
+    }
+    const fim = nodes.find((node) => {
+      return node.type === "end";
+    });
+    if (!fim) {
+      alert("O fluxograma não possui um fim.");
+      return false;
+    }
+    const conexaoInicio = edges.find((edge) => {
+      return edge.source === inicio.id;
+    });
+    if (!conexaoInicio) {
+      alert("O início não está conectado.");
+      return false;
+    }
+    return true;
   }
-
-  const inicio = nodes.find((node) => {
-    return node.type === "start";
-  });
-  const proximo = encontrarnode(inicio, nodes, edges);
-  console.log(proximo);
 
   function encontrarnode(nodeAtual, nodes, edges) {
     const edge = edges.find((edge) => {
