@@ -121,7 +121,8 @@ function App() {
   }
 
   function rodar() {
-
+    const valido = validarFluxograma(nodes, edges);
+    return valido;
   }
 
   return (
@@ -134,7 +135,12 @@ function App() {
 
       <div className="content">
 
-        <Sidebar onAdicionarNode={adicionarNode} />
+        <Sidebar 
+        onvalidar={validarFluxograma}
+        onRodar={rodar}
+        onAdicionarNode={adicionarNode}
+        nodes={nodes}
+        edges={edges} />
 
         <FlowCanvas
           nodes={nodes}
