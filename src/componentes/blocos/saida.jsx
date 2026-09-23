@@ -4,7 +4,11 @@ function SaidaNode({ id, data }) {
 
     return (
 
-        <div className="saidaNode">
+        <div className={
+            id === data.nodeAtual?.id
+                ? "saidaNode nodeAtual"
+                : "saidaNode"
+        }>
             <svg
                 className="saidaShape"
                 viewBox="0 0 130 75"

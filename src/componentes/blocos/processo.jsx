@@ -4,7 +4,11 @@ function ProcessoNode({ id, data }) {
 
     return (
 
-        <div className="processoNode">
+        <div className={
+            id === data.nodeAtual?.id
+                ? "processNode nodeAtual"
+                : "processNode"
+        }>
             <Handle type="target" position={Position.Top} className="node-handle" />
             <span>{data?.label ?? "Processo"}</span>
             <input

@@ -7,7 +7,7 @@ const blocos = [
     { id: 5, nome: "Fim", tipo: "end" }
 ];
 
-function Sidebar({ onAdicionarNode }) {
+function Sidebar({ onAdicionarNode, onRodar }) {
 
     return (
 
@@ -29,7 +29,7 @@ function Sidebar({ onAdicionarNode }) {
 
             }
             <div className="botoessidebar">
-                <button className="botaorodar">Rodar</button>
+                <button onClick={onRodar} className="botaorodar">Rodar</button>
                 <button className="botaoconverter">Converter</button>
             </div>
         </div>

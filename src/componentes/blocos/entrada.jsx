@@ -2,7 +2,11 @@ import { Handle, Position } from "@xyflow/react";
 function EntradaNode({ id, data }) {
     return (
 
-        <div className="entradaNode">
+        <div className={
+            id === data.nodeAtual?.id
+                ? "entradaNode nodeAtual"
+                : "entradaNode"
+        }>
             <Handle type="target" position={Position.Top} className="node-handle" />
             <span>{data?.label ?? "Entrada"}</span>
             <input

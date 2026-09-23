@@ -4,6 +4,7 @@ import Sidebar from './componentes/sidebar';
 import Terminal from './componentes/terminal';
 import FlowCanvas from './componentes/FlowCanvas';
 import { useNodesState, useEdgesState, addEdge } from "@xyflow/react";
+import { useState } from 'react';
 
 const initialEdges = [];
 
@@ -141,7 +142,9 @@ function App() {
 
       <div className="content">
 
-        <Sidebar onAdicionarNode={adicionarNode} />
+        <Sidebar 
+        onAdicionarNode={adicionarNode} 
+        onRodar={rodar} />
 
         <FlowCanvas
           nodes={nodes}
