@@ -341,3 +341,7 @@
     margin: 5px 0;
     margin-left: 10px;
 }
+
+.nodeAtual {
+    border: 3px solid green;
+}

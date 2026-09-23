@@ -7,7 +7,7 @@ const blocos = [
     { id: 5, nome: "Fim", tipo: "end" }
 ];
 
-function Sidebar({ onAdicionarNode, onvalidar, onRodar, nodes, edges }) {
+function Sidebar({ onAdicionarNode }) {
 
     return (
 
@@ -29,7 +29,7 @@ function Sidebar({ onAdicionarNode, onvalidar, onRodar, nodes, edges }) {
 
             }
             <div className="botoessidebar">
-                <button onClick={() => (onRodar ? onRodar() : onvalidar?.(nodes, edges))} className="botaorodar">Rodar</button>
+                <button className="botaorodar">Rodar</button>
                 <button className="botaoconverter">Converter</button>
             </div>
         </div>

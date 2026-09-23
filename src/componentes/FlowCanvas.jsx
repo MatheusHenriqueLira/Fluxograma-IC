@@ -17,12 +17,13 @@ const nodeTypes = {
     saida: SaidaNode
 }
 
-function FlowCanvas({ nodes, onNodesChange, edges, onEdgesChange, onConnect, atualizarNode }) {
+function FlowCanvas({ nodes, onNodesChange, edges, onEdgesChange, onConnect, atualizarNode, nodeAtual }) {
   const nodesComFuncao = nodes.map((node) => ({
     ...node,
     data: {
       ...node.data,
-      atualizarNode
+      atualizarNode,
+      nodeAtual
     }
   }));
 

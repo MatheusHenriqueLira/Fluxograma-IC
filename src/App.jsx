@@ -19,7 +19,7 @@ const initialNodes = [
 function App() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-
+  const [nodeAtual, setNodeAtual] = useState(null);
   function onConnect(connection) {
     setEdges((eds) => addEdge(connection, eds));
   }
@@ -121,8 +121,14 @@ function App() {
   }
 
   function rodar() {
-    const valido = validarFluxograma(nodes, edges);
-    return valido;
+    const validar = validarFluxograma(nodes, edges);
+    if (!validar) {
+      return;
+    }
+    const inicio = nodes.find((node) => {
+      return node.type === "start";
+    });
+    setNodeAtual(inicio);
   }
 
   return (
@@ -135,12 +141,7 @@ function App() {
 
       <div className="content">
 
-        <Sidebar 
-        onvalidar={validarFluxograma}
-        onRodar={rodar}
-        onAdicionarNode={adicionarNode}
-        nodes={nodes}
-        edges={edges} />
+        <Sidebar onAdicionarNode={adicionarNode} />
 
         <FlowCanvas
           nodes={nodes}
@@ -150,6 +151,7 @@ function App() {
           onConnect={onConnect}
           setNodes={setNodes}
           atualizarNode={atualizarNode}
+          nodeAtual={nodeAtual}
         />
         <Terminal />
       </div>
