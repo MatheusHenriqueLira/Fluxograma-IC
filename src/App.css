@@ -86,7 +86,7 @@
     position: relative;
 }
 
-.processoNode {
+.processNode {
     width: 150px;
     height: 60px;
     border-radius: 8px;
@@ -190,7 +190,7 @@
 }
 
 .decisionContent input,
-.processoNode input {
+.processNode input {
     width: 75%;
     border-radius: 4px;
     margin-top: 5px;
@@ -217,7 +217,7 @@
 }
 
 .startNode,
-.processoNode,
+.processNode,
 .entradaNode,
 .decisionDiamond,
 .endNode {

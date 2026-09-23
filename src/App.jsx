@@ -104,6 +104,16 @@ function App() {
       alert("O início não está conectado.");
       return false;
     }
+    const caminhovalido = verificarCaminho(inicio, fim, nodes, edges);
+    if (!caminhovalido.valido) {
+      alert("O fluxograma não possui um caminho válido do início ao fim.");
+      return false;
+    }
+
+    if (caminhovalido.visitados.size !== (nodes.length - 1)) {
+      alert("O fluxograma possui nós não conectados.");
+      return false;
+    }
     return true;
   }
 
@@ -130,8 +140,55 @@ function App() {
       return node.type === "start";
     });
     setNodeAtual(inicio);
-  }
 
+  }
+  function avancarNode() {
+    const proximoNode = encontrarnode(nodeAtual, nodes, edges);
+    const fim = nodes.find((node) => {
+      return node.type === "end";
+    });
+    if (!proximoNode) {
+      alert("O fluxograma não possui um próximo nó.");
+      return;
+    }
+    if (proximoNode.id === fim.id) {
+      setNodeAtual(null);
+      alert("O fluxograma chegou ao fim.");
+      return;
+    }
+    setNodeAtual(proximoNode);
+  }
+  function verificarCaminho(inicio, fim, nodes, edges) {
+
+    const visitados = new Set();
+
+    let atual = inicio;
+
+    while (atual.id !== fim.id) {
+
+      if (visitados.has(atual.id)) {
+        return {
+          valido: false,
+          visitados: visitados
+        };
+      }
+
+      visitados.add(atual.id);
+
+      const proximo = encontrarnode(atual, nodes, edges);
+      if (proximo === null) {
+        return {
+          valido: false,
+          visitados: visitados
+        };
+      }
+      atual = proximo;
+    }
+    return {
+      valido: true,
+      visitados: visitados
+    };
+  }
   return (
 
     < div className="app" >
@@ -142,9 +199,10 @@ function App() {
 
       <div className="content">
 
-        <Sidebar 
-        onAdicionarNode={adicionarNode} 
-        onRodar={rodar} />
+        <Sidebar
+          onAdicionarNode={adicionarNode}
+          onRodar={rodar}
+          onAvancar={avancarNode} />
 
         <FlowCanvas
           nodes={nodes}
