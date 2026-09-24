@@ -63,7 +63,8 @@ function App() {
       edges: edges
     };
     localStorage.setItem("fluxograma", JSON.stringify(fluxograma));
-
+    console.log("salvou");
+    console.log(fluxograma);
   }
   function carregarFluxograma() {
 
