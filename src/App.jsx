@@ -62,21 +62,41 @@ function App() {
       nodes: nodes,
       edges: edges
     };
-    localStorage.setItem("fluxograma", JSON.stringify(fluxograma));
-    console.log("salvou");
-    console.log(fluxograma);
+
+    const dados = JSON.stringify(fluxograma);
+
+    const arquivo = new Blob([dados], { type: "application/json" });
+
+    const url = URL.createObjectURL(arquivo);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "meu-fluxograma.json";
+    link.click();
   }
+
   function carregarFluxograma() {
+    const input = document.createElement("input");
 
-    const dadosSalvos = localStorage.getItem("fluxograma");
+    input.type = "file";
+    input.accept = ".json,application/json";
 
-    if (dadosSalvos) {
+    input.onchange = (event) => {
+      const arquivo = event.target.files[0];
 
-      const fluxograma = JSON.parse(dadosSalvos);
+      const leitor = new FileReader();
 
-      setNodes(fluxograma.nodes);
-      setEdges(fluxograma.edges);
-    }
+      leitor.onload = (e) => {
+        const fluxograma = JSON.parse(e.target.result);
+
+        setNodes(fluxograma.nodes);
+        setEdges(fluxograma.edges);
+      };
+
+      leitor.readAsText(arquivo);
+    };
+
+    input.click();
   }
 
   function validarFluxograma(nodes, edges) {
