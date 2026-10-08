@@ -9,18 +9,20 @@ function DecisionNode({id, data }) {
             <div className="decisionDiamond">
                 <div className="decisionContent">
                     <span>{data?.label ?? "Decisão"}</span>
-                <input
-                    type="text"
-                    placeholder="Condição"
-                    value={data?.condition ?? ""}
-                    onChange={(e) =>
-                        data.atualizarNode(id, {
-                            condition: e.target.value
-                        })
-                    }
-                />
+                    <input
+                        type="text"
+                        placeholder="ex: media >= 6"
+                        value={data?.expression ?? data?.condition ?? ""}
+                        onChange={(e) =>
+                            data.atualizarNode(id, {
+                                expression: e.target.value,
+                                condition: e.target.value // retrocompatibilidade
+                            })
+                        }
+                    />
                 </div>
             </div>
+            <span className="handleLabelLeft">Não</span>
             <Handle type="source"
                 position={Position.Left}
                 className="node-handle"
@@ -31,6 +33,7 @@ function DecisionNode({id, data }) {
                 className="node-handle"
                 id="right"
             />
+            <span className="handleLabelRight">Sim</span>
         </div>
 
     )

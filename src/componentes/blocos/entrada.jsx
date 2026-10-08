@@ -8,10 +8,10 @@ function EntradaNode({ id, data }) {
                 : "entradaNode"
         }>
             <Handle type="target" position={Position.Top} className="node-handle" />
-            <span>{data?.label ?? "Entrada"}</span>
+            <span className="nodeTitulo">Entrada</span>
             <input
                 type="text"
-                placeholder="Variável"
+                placeholder="Variável (ex: n1)"
                 value={data?.variable ?? ""}
                 onChange={(e) =>
                     data.atualizarNode(id, {
@@ -19,13 +19,27 @@ function EntradaNode({ id, data }) {
                     })
                 }
             />
-            <input
-                type="text"
-                placeholder="Valor"
-                value={data?.value ?? ""}
+            <select
+                className="nodeSelect"
+                value={data?.dataType ?? "int"}
                 onChange={(e) =>
                     data.atualizarNode(id, {
-                        value: e.target.value
+                        dataType: e.target.value
+                    })
+                }
+            >
+                <option value="int">Inteiro (int)</option>
+                <option value="float">Decimal (float)</option>
+                <option value="string">Texto (str)</option>
+                <option value="bool">Booleano (bool)</option>
+            </select>
+            <input
+                type="text"
+                placeholder="Prompt (opcional)"
+                value={data?.label ?? ""}
+                onChange={(e) =>
+                    data.atualizarNode(id, {
+                        label: e.target.value
                     })
                 }
             />

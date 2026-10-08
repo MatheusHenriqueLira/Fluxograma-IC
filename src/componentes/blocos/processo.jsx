@@ -10,10 +10,20 @@ function ProcessoNode({ id, data }) {
                 : "processNode"
         }>
             <Handle type="target" position={Position.Top} className="node-handle" />
-            <span>{data?.label ?? "Processo"}</span>
+            <span className="nodeTitulo">Processo</span>
             <input
                 type="text"
-                placeholder="Expressão"
+                placeholder="Variável (ex: media)"
+                value={data?.variable ?? ""}
+                onChange={(e) =>
+                    data.atualizarNode(id, {
+                        variable: e.target.value
+                    })
+                }
+            />
+            <input
+                type="text"
+                placeholder="Expressão (ex: (a + b) / 2)"
                 value={data?.expression ?? ""}
                 onChange={(e) =>
                     data.atualizarNode(id, {

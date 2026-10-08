@@ -2,8 +2,8 @@ import SidebarItem from "./sidebaritem";
 const blocos = [
     { id: 1, nome: "Processo", tipo: "process" },
     { id: 2, nome: "Decisão", tipo: "decision" },
-    { id: 3, nome: "Entrada", tipo: "entrada" },
-    { id: 4, nome: "Saída", tipo: "saida" },
+    { id: 3, nome: "Entrada", tipo: "input" },
+    { id: 4, nome: "Saída", tipo: "output" },
     { id: 5, nome: "Fim", tipo: "end" }
 ];
 

@@ -87,8 +87,8 @@
 }
 
 .processNode {
-    width: 150px;
-    height: 60px;
+    width: 160px;
+    min-height: 95px;
     border-radius: 8px;
     background: var(--process-color);
     display: flex;
@@ -96,17 +96,20 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    padding: 8px 6px;
 }
 
 .entradaNode {
-    width: 130px;
-    height: 75px;
+    width: 160px;
+    min-height: 115px;
     background: var(--inputoutput-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transform: skew(-10deg);
+    padding: 8px 6px;
+    border-radius: 6px;
 }
 
 .saidaNode {
@@ -130,6 +133,12 @@
     z-index: 0;
 }
 
+.nodeTitulo {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
 .entradaNode span {
     transform: skew(10deg);
 }
@@ -149,18 +158,41 @@
     z-index: 1;
 }
 
-.entradaNode input {
-    width: 75%;
+.entradaNode input,
+.entradaNode select {
+    width: 80%;
     border-radius: 4px;
-    margin-top: 5px;
+    margin-top: 4px;
     border: 1px solid var(--surface-color);
+    font-size: 11px;
+    padding: 2px 4px;
+    transform: skew(10deg);
+    box-sizing: border-box;
 }
-
 
 .decisionNode {
     width: 160px;
     height: 160px;
     position: relative;
+}
+
+.handleLabelLeft,
+.handleLabelRight {
+    position: absolute;
+    top: calc(50% - 8px);
+    font-size: 11px;
+    font-weight: 700;
+    color: #444;
+    pointer-events: none;
+    user-select: none;
+}
+
+.handleLabelLeft {
+    left: -26px;
+}
+
+.handleLabelRight {
+    right: -24px;
 }
 
 .decisionDiamond {

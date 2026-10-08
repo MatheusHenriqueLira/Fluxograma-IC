@@ -13,6 +13,9 @@ const nodeTypes = {
     process: ProcessoNode,
     decision: DecisionNode,
     end: EndNode,
+    input: EntradaNode,
+    output: SaidaNode,
+    // Retrocompatibilidade para fluxogramas antigos salvos
     entrada: EntradaNode,
     saida: SaidaNode
 }
