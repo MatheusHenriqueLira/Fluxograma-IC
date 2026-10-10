@@ -22,10 +22,45 @@ function App() {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [nodeAtual, setNodeAtual] = useState(null);
   function onConnect(connection) {
-    setEdges((eds) => addEdge(connection, eds));
+    const noOrigem = nodes.find((node) => node.id === connection.source);
+    let novaConexao = { ...connection };
+
+    if (noOrigem && noOrigem.type === "decision") {
+      if (connection.sourceHandle === "right") {
+        novaConexao.label = "sim";
+      } else if (connection.sourceHandle === "left") {
+        novaConexao.label = "nao";
+      }
+
+      novaConexao.labelStyle = { fill: "#222", fontWeight: 700, fontSize: 12 };
+      novaConexao.labelBgStyle = { fill: "#ffffff", fillOpacity: 0.95, rx: 4, ry: 4 };
+      novaConexao.labelBgPadding = [6, 4];
+
+      // Remove aresta anterior saindo do mesmo handle da decisão para evitar duplicidade
+      setEdges((eds) => {
+        const semDuplicadas = eds.filter(
+          (edge) => !(edge.source === connection.source && edge.sourceHandle === connection.sourceHandle)
+        );
+        return addEdge(novaConexao, semDuplicadas);
+      });
+      return;
+    }
+
+    setEdges((eds) => addEdge(novaConexao, eds));
   }
 
   function adicionarNode(tipo, label) {
+    let dadosIniciais = { label };
+    if (tipo === "input") {
+      dadosIniciais = { variable: "", dataType: "int", label: "" };
+    } else if (tipo === "process") {
+      dadosIniciais = { variable: "", expression: "" };
+    } else if (tipo === "decision") {
+      dadosIniciais = { expression: "" };
+    } else if (tipo === "output") {
+      dadosIniciais = { expression: "" };
+    }
+
     const novoNode = {
       id: crypto.randomUUID(),
       type: tipo,
@@ -33,9 +68,7 @@ function App() {
         x: 300,
         y: 200
       },
-      data: {
-        label: label
-      }
+      data: dadosIniciais
     };
 
     setNodes((nodesAtuais) => [...nodesAtuais, novoNode]);
