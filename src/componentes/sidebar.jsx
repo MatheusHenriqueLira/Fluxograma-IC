@@ -7,7 +7,7 @@ const blocos = [
     { id: 5, nome: "Fim", tipo: "end" }
 ];
 
-function Sidebar({ onAdicionarNode, onRodar, onAvancar }) {
+function Sidebar({ onAdicionarNode, onRodar, onAvancar, onConverter, carregandoConversao }) {
 
     return (
 
@@ -30,7 +30,14 @@ function Sidebar({ onAdicionarNode, onRodar, onAvancar }) {
             }
             <div className="botoessidebar">
                 <button onClick={onRodar} className="botaorodar">Rodar</button>
-                <button onClick={onAvancar}className="botaoconverter">Converter</button>
+                <button onClick={onAvancar} className="botaoavancar">Avançar</button>
+                <button
+                    onClick={onConverter}
+                    className="botaoconverter"
+                    disabled={carregandoConversao}
+                >
+                    {carregandoConversao ? "Convertendo..." : "Converter"}
+                </button>
             </div>
         </div>
     );

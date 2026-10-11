@@ -3,14 +3,14 @@ function Header({ onSalvar, onCarregar }) {
         <header className="header">
 
             <div className="logo"></div>
-            <div className="title"><h1>Fluxinho</h1></div>
+            <div className="title"><h1>Fluxo gramas gramas</h1></div>
             <div className="botoes">
-            <button className="salvar-button" onClick={onSalvar}>
-                Salvar Fluxograma
-            </button>
-            <button className="carregar-button" onClick={onCarregar}>
-                Carregar Fluxograma
-            </button>
+                <button className="salvar-button" onClick={onSalvar}>
+                    Salvar Fluxograma
+                </button>
+                <button className="carregar-button" onClick={onCarregar}>
+                    Carregar Fluxograma
+                </button>
             </div>
         </header>
     );

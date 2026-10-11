@@ -39,24 +39,6 @@
     margin-left: auto;
 }
 
-.salvar-button,
-.carregar-button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    background-color: var(--success-color);
-    color: var(--surface-color);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.salvar-button:hover,
-.carregar-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -68,22 +50,29 @@
 
 .flowCanvas {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: var(--canvas-color);
 }
 
-.startNode {
+/* ---- Nós ---- */
+
+.startNode,
+.endNode {
     width: 120px;
     height: 50px;
-    background: var(--start-color);
     border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     position: relative;
+}
+
+.startNode {
+    background: var(--start-color);
+}
+
+.endNode {
+    background: var(--end-color);
 }
 
 .processNode {
@@ -112,16 +101,33 @@
     border-radius: 6px;
 }
 
+.entradaNode span,
+.entradaNode input,
+.entradaNode select {
+    transform: skew(10deg);
+}
+
+.entradaNode input,
+.entradaNode select {
+    width: 80%;
+    border-radius: 4px;
+    margin-top: 4px;
+    border: 1px solid var(--surface-color);
+    font-size: 11px;
+    padding: 2px 4px;
+    box-sizing: border-box;
+}
+
 .saidaNode {
     width: 150px;
     height: 70px;
     position: relative;
-    background: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: none;
+    color: var(--surface-color);
+    font-weight: 600;
 }
 
 .saidaShape {
@@ -133,66 +139,24 @@
     z-index: 0;
 }
 
-.nodeTitulo {
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 2px;
-}
-
-.entradaNode span {
-    transform: skew(10deg);
-}
-
-.saidaNode span {
+.saidaNode span,
+.saidaNode input,
+.saidaNode .react-flow__handle {
     position: relative;
-    transform: none;
     z-index: 1;
 }
 
 .saidaNode input {
-    position: relative;
-    z-index: 1;
-}
-
-.saidaNode .react-flow__handle {
-    z-index: 1;
-}
-
-.entradaNode input,
-.entradaNode select {
-    width: 80%;
+    width: 70%;
     border-radius: 4px;
-    margin-top: 4px;
+    margin-top: 5px;
     border: 1px solid var(--surface-color);
-    font-size: 11px;
-    padding: 2px 4px;
-    transform: skew(10deg);
-    box-sizing: border-box;
 }
 
 .decisionNode {
     width: 160px;
     height: 160px;
     position: relative;
-}
-
-.handleLabelLeft,
-.handleLabelRight {
-    position: absolute;
-    top: calc(50% - 8px);
-    font-size: 11px;
-    font-weight: 700;
-    color: #444;
-    pointer-events: none;
-    user-select: none;
-}
-
-.handleLabelLeft {
-    left: -26px;
-}
-
-.handleLabelRight {
-    right: -24px;
 }
 
 .decisionDiamond {
@@ -221,31 +185,43 @@
     text-align: center;
 }
 
-.decisionContent input,
-.processNode input {
+.decisionContent input {
     width: 75%;
     border-radius: 4px;
     margin-top: 5px;
     border: 1px solid var(--surface-color);
 }
 
-.saidaNode input {
-    width: 70%;
+.handleLabelLeft,
+.handleLabelRight {
+    position: absolute;
+    top: calc(50% - 8px);
+    font-size: 11px;
+    font-weight: 700;
+    color: #444;
+    pointer-events: none;
+    user-select: none;
+}
+
+.handleLabelLeft {
+    left: -26px;
+}
+
+.handleLabelRight {
+    right: -24px;
+}
+
+.nodeTitulo {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.processNode input {
+    width: 75%;
     border-radius: 4px;
     margin-top: 5px;
     border: 1px solid var(--surface-color);
-}
-
-.endNode {
-    width: 120px;
-    height: 50px;
-    background: var(--end-color);
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    position: relative;
 }
 
 .startNode,
@@ -258,10 +234,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.saidaNode {
-    color: var(--surface-color);
-    font-weight: 600;
-}
+/* ---- Handles ---- */
 
 .react-flow__handle.source {
     width: 7px;
@@ -274,6 +247,17 @@
     height: 7px;
     background-color: var(--primary-color);
 }
+
+.react-flow__node-input,
+.react-flow__node-output,
+.react-flow__node-decision {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+/* ---- Sidebar ---- */
 
 .sidebarItem {
     display: flex;
@@ -301,6 +285,57 @@
     color: var(--primary-color);
 }
 
+.botoessidebar {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    gap: 10px;
+}
+
+.botaorodar,
+.botaoavancar,
+.botaoconverter,
+.salvar-button,
+.carregar-button {
+    margin-left: 10px;
+    padding: 9px 14px;
+    color: var(--surface-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.botaorodar {
+    background-color: var(--success-color);
+}
+
+.botaoavancar {
+    background-color: #2196F3;
+}
+
+.salvar-button,
+.carregar-button {
+    background: var(--start-color);
+}
+
+.botaoconverter {
+    background: linear-gradient(135deg, #d96ccc, #8e24aa);
+}
+
+.botaorodar:hover,
+.botaoavancar:hover,
+.salvar-button:hover,
+.carregar-button:hover,
+.botaoconverter:hover {
+    transform: scale(1.04);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- Terminal ---- */
+
 .terminal {
     display: flex;
     flex-direction: column;
@@ -320,58 +355,96 @@
 }
 
 .Areaterminal {
-    margin-top:auto
+    margin-top: auto;
 }
 
-.botoessidebar {
+.terminalHeader {
     display: flex;
-    flex-direction: column;
-    margin-top:auto;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #eee;
 }
 
-.botaorodar, .botaoconverter {
-    margin-left: 10px;
-    padding: 10px 15px;
-    background-color: var(--success-color);
-    color: var(--surface-color);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s;
+.terminalTitulo {
     font-weight: bold;
-}
-
-.botaorodar:hover, .botaoconverter:hover {
-    transform: scale(1.05);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-.Areaterminal h2 , .AreaLinguagem h2 {
-    margin-bottom: 5px;
-    margin-top: 10px;
-    margin-left: 10px;
-    text-decoration: underline;
-}
-
-.languageSelect {
-    margin-bottom: 5px;
-    margin-top: 10px;
-    margin-left: 10px;
-    border: none;
     color: var(--text-color);
-    font-size: 1.5em;
-    font-weight: bold;
-    text-decoration: underline;
+    font-size: 14px;
 }
 
-.languageSelect:focus {
-    outline: none;
+.statusBadge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
 }
 
-.AreaLinguagem p {
-    margin: 5px 0;
-    margin-left: 10px;
+.statusBadge.loading {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.statusBadge.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.codigoArea {
+    font-size: 13px;
+    min-height: 120px;
+}
+
+.codigoPython {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+    text-align: left;
+}
+
+.codigoPython code {
+    white-space: pre;
+}
+
+.terminalMensagem {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.terminalMensagem.aviso {
+    color: #d97706;
+    font-style: italic;
+}
+
+.terminalMensagem.erro {
+    background: #fde8e8;
+    border: 1px solid #f8b4b4;
+    color: #9b1c1c;
+    padding: 8px;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+.terminalMensagem.erro p {
+    margin: 4px 0;
+    font-size: 11px;
+}
+
+.consoleOutput {
+    background: #f7f7f7;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #444;
+    min-height: 50px;
+    margin: 0;
+    white-space: pre-wrap;
 }
 
 .nodeAtual {

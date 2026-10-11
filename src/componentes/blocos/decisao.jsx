@@ -1,6 +1,6 @@
 import { Handle, Position } from "@xyflow/react";
 
-function DecisionNode({id, data }) {
+function DecisionNode({ id, data }) {
 
     return (
 
@@ -12,11 +12,10 @@ function DecisionNode({id, data }) {
                     <input
                         type="text"
                         placeholder="ex: media >= 6"
-                        value={data?.expression ?? data?.condition ?? ""}
+                        value={data?.expression ?? ""}
                         onChange={(e) =>
                             data.atualizarNode(id, {
-                                expression: e.target.value,
-                                condition: e.target.value // retrocompatibilidade
+                                expression: e.target.value
                             })
                         }
                     />

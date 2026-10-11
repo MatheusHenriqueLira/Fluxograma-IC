@@ -1,27 +1,42 @@
-function Terminal() {
+function Terminal({ codigoPython, status, erro, saidaConsole }) {
     return (
         <div className="terminal">
             <div className="AreaLinguagem">
-                <select className="languageSelect" defaultValue="">
-                    <option value="" disabled>Linguagem</option>
-                    <option value="javascript">Javascript</option>
-                    <option value="python">Python</option>
-                    <option value="java">Java</option>
-                    <option value="cpp">C++</option>
-                </select>
+                <div className="terminalHeader">
+                    <span className="terminalTitulo">Código Python</span>
+                    {status === 'loading' && <span className="statusBadge loading">Convertendo...</span>}
+                    {status === 'success' && <span className="statusBadge success">Convertido</span>}
+                </div>
 
-                <p>
-                    <br />
-                    let X=2 <br />
-                    let Y=3 <br />
+                <div className="codigoArea">
+                    {status === "loading" && (
+                        <p className="terminalMensagem aviso">Enviando fluxograma e aguardando resposta da API...</p>
+                    )}
 
-                    Soma = X+Y <br />
-                    console.log(Soma)
-                    <br />
-                </p>
+                    {status === "error" && (
+                        <div className="terminalMensagem erro">
+                            <strong>Erro na conversão:</strong>
+                            <p>{erro}</p>
+                            <small>Certifique-se de que a API Laravel está rodando.</small>
+                        </div>
+                    )}
+
+                    {status === "success" && codigoPython && (
+                        <pre className="codigoPython">
+                            <code>{codigoPython}</code>
+                        </pre>
+                    )}
+
+                    {(!status || status === "idle") && (
+                        <p className="terminalMensagem">
+                            Clique em <strong>"Converter"</strong> na barra lateral para gerar o código em Python.
+                        </p>
+                    )}
+                </div>
             </div>
             <div className="Areaterminal">
-                <h2>Terminal</h2>
+                <span className="terminalTitulo">Saída da Execução</span>
+                <pre className="consoleOutput">{saidaConsole || "Nenhuma execução iniciada."}</pre>
             </div>
         </div>
     );

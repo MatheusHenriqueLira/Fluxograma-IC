@@ -1,4 +1,4 @@
-import {ReactFlow, Background, BackgroundVariant} from "@xyflow/react";
+import { ReactFlow, Background, BackgroundVariant } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import "../App.css";
 import StartNode from "./blocos/inicio";
@@ -14,38 +14,35 @@ const nodeTypes = {
     decision: DecisionNode,
     end: EndNode,
     input: EntradaNode,
-    output: SaidaNode,
-    // Retrocompatibilidade para fluxogramas antigos salvos
-    entrada: EntradaNode,
-    saida: SaidaNode
+    output: SaidaNode
 }
 
 function FlowCanvas({ nodes, onNodesChange, edges, onEdgesChange, onConnect, atualizarNode, nodeAtual }) {
-  const nodesComFuncao = nodes.map((node) => ({
-    ...node,
-    data: {
-      ...node.data,
-      atualizarNode,
-      nodeAtual
-    }
-  }));
+    const nodesComFuncao = nodes.map((node) => ({
+        ...node,
+        data: {
+            ...node.data,
+            atualizarNode,
+            nodeAtual
+        }
+    }));
 
-  return (
-    <div className="flowCanvas">
-      <ReactFlow
-        edges={edges}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        nodes={nodesComFuncao}
-        onNodesChange={onNodesChange}
-        nodeTypes={nodeTypes}
-        nodesDraggable
-        fitView 
-      >
-        <Background variant={BackgroundVariant.Dots} gap={16} size={1} />
-      </ReactFlow>
-    </div>
-  );
+    return (
+        <div className="flowCanvas">
+            <ReactFlow
+                edges={edges}
+                onEdgesChange={onEdgesChange}
+                onConnect={onConnect}
+                nodes={nodesComFuncao}
+                onNodesChange={onNodesChange}
+                nodeTypes={nodeTypes}
+                nodesDraggable
+                fitView
+            >
+                <Background variant={BackgroundVariant.Dots} gap={16} size={1} />
+            </ReactFlow>
+        </div>
+    );
 }
 
 export default FlowCanvas;
