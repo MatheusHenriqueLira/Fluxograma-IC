@@ -53,143 +53,123 @@
     background: var(--canvas-color);
 }
 
-/* ---- Nós ---- */
+/* ---- Nós com SVG ---- */
 
-.startNode,
-.endNode {
-    width: 120px;
-    height: 50px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    position: relative;
-}
-
-.startNode {
-    background: var(--start-color);
-}
-
-.endNode {
-    background: var(--end-color);
-}
-
-.processNode {
-    width: 160px;
-    min-height: 95px;
-    border-radius: 8px;
-    background: var(--process-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 8px 6px;
-}
-
-.entradaNode {
-    width: 160px;
-    min-height: 115px;
-    background: var(--inputoutput-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: skew(-10deg);
-    padding: 8px 6px;
-    border-radius: 6px;
-}
-
-.entradaNode span,
-.entradaNode input,
-.entradaNode select {
-    transform: skew(10deg);
-}
-
-.entradaNode input,
-.entradaNode select {
-    width: 80%;
-    border-radius: 4px;
-    margin-top: 4px;
-    border: 1px solid var(--surface-color);
-    font-size: 11px;
-    padding: 2px 4px;
-    box-sizing: border-box;
-}
-
-.saidaNode {
-    width: 150px;
-    height: 70px;
+.nodeSvgContainer {
     position: relative;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--surface-color);
-    font-weight: 600;
+    user-select: none;
+    transition: transform 0.15s ease, filter 0.2s ease;
 }
 
-.saidaShape {
+.nodeSvgBackground {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 0;
+    object-fit: fill;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
 }
 
-.saidaNode span,
-.saidaNode input,
-.saidaNode .react-flow__handle {
+.nodeSvgContainer .nodeLabel {
     position: relative;
     z-index: 1;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.saidaNode input {
-    width: 70%;
-    border-radius: 4px;
-    margin-top: 5px;
-    border: 1px solid var(--surface-color);
+.startNode,
+.endNode {
+    width: 180px;
+    height: 62px;
+}
+
+.processNode {
+    width: 190px;
+    height: 95px;
+}
+
+.entradaNode {
+    width: 220px;
+    height: 155px;
+}
+
+.entradaContent {
+    padding-top: 24px;
+    padding-bottom: 8px;
+}
+
+.saidaNode {
+    width: 205px;
+    height: 92px;
+}
+
+.saidaContent {
+    padding-left: 26px;
+    padding-right: 14px;
 }
 
 .decisionNode {
-    width: 160px;
-    height: 160px;
-    position: relative;
-}
-
-.decisionDiamond {
-    background: var(--decision-color);
-    width: 110px;
-    height: 110px;
-    position: absolute;
-    left: 25px;
-    top: 25px;
-    transform: rotate(45deg);
+    width: 175px;
+    height: 175px;
 }
 
 .decisionContent {
-    width: 100%;
-    height: 100%;
-    transform: rotate(-45deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.decisionContent span {
-    display: block;
-    width: 100%;
+    max-width: 110px;
     text-align: center;
 }
 
 .decisionContent input {
-    width: 75%;
+    width: 100%;
+}
+
+.nodeSvgContent {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 8px 12px;
+}
+
+.nodeSvgContent .nodeTitulo {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.nodeSvgContent input,
+.nodeSvgContent select {
+    width: 82%;
     border-radius: 4px;
-    margin-top: 5px;
-    border: 1px solid var(--surface-color);
+    margin-top: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #222;
+    font-size: 11px;
+    padding: 3px 6px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nodeSvgContent input:focus,
+.nodeSvgContent select:focus {
+    border-color: #ffffff;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
 }
 
 .handleLabelLeft,
@@ -201,53 +181,38 @@
     color: #444;
     pointer-events: none;
     user-select: none;
+    z-index: 2;
 }
 
 .handleLabelLeft {
-    left: -26px;
+    left: -28px;
 }
 
 .handleLabelRight {
-    right: -24px;
-}
-
-.nodeTitulo {
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 2px;
-}
-
-.processNode input {
-    width: 75%;
-    border-radius: 4px;
-    margin-top: 5px;
-    border: 1px solid var(--surface-color);
-}
-
-.startNode,
-.processNode,
-.entradaNode,
-.decisionDiamond,
-.endNode {
-    color: var(--surface-color);
-    font-weight: 600;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    right: -26px;
 }
 
 /* ---- Handles ---- */
 
+.react-flow__handle {
+    z-index: 10 !important;
+}
+
 .react-flow__handle.source {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     background-color: #ff0000;
 }
 
 .react-flow__handle.target {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     background-color: var(--primary-color);
 }
 
+.react-flow__node-start,
+.react-flow__node-end,
+.react-flow__node-process,
 .react-flow__node-input,
 .react-flow__node-output,
 .react-flow__node-decision {
@@ -448,5 +413,16 @@
 }
 
 .nodeAtual {
-    border: 3px solid green;
+    filter: drop-shadow(0 0 10px #00e676) drop-shadow(0 0 18px rgba(0, 230, 118, 0.6)) !important;
+    animation: pulsarNode 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes pulsarNode {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.04);
+    }
 }
