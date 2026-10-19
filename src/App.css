@@ -414,7 +414,6 @@
 
 .nodeAtual {
     filter: drop-shadow(0 0 10px #00e676) drop-shadow(0 0 18px rgba(0, 230, 118, 0.6)) !important;
-    animation: pulsarNode 1.5s infinite alternate ease-in-out;
 }
 
 @keyframes pulsarNode {
