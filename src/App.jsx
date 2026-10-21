@@ -158,7 +158,11 @@ function App() {
             const dados = await resposta.json();
             const codigo = typeof dados === "string"
                 ? dados
-                : (dados.code || dados.python || dados.output || JSON.stringify(dados, null, 2));
+                : (dados.code || dados.python || dados.output || dados.data?.code);
+
+            if (typeof codigo !== "string" || !codigo.trim()) {
+                throw new Error("A API não retornou o código Python.");
+            }
 
             setCodigoPython(codigo);
             setStatusConversao("success");
